@@ -5,6 +5,12 @@ let const_data = {
         USER_SIGN_UP_OTP: "USER_SIGN_UP_OTP"
     },
 
+    OTP_EXPIRE_TIME: 1800000,
+    OTP_TYPE: {
+        SIGN_UP_OTP: "SIGN_UP_OTP",
+        SIGN_IN_OTP: "SIGN_IN_OTP"
+    },
+
 
     MAIL_CONFIG: {
         host: "smtp.example.com",
@@ -17,4 +23,4 @@ let const_data = {
     }
 }
 
-module.exports= const_data;
+module.exports = const_data;

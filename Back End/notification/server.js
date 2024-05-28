@@ -13,7 +13,7 @@ const consumeRabbitMQ = require("./helper/consumeMessage");
 
 
 //const
-const PORT = process.env.PORT || 7002
+const PORT = process.env.PORT || 7003
 
 consumeRabbitMQ().then(() => { 
     app.listen(PORT, () => {

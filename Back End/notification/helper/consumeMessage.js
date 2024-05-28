@@ -4,6 +4,7 @@ const mailTemplate = require("../config/template/mailTemplate");
 const const_data = require("../config/const_data");
 const SignUpOTPConsumer = require("../communication/Consumer/User/SIGN_UP_CONSUMER/index");
 const SingInConsumerOTP = require("../communication/Consumer/User/SING_IN_CONSUMER/Index");
+const AdminForgetPasswordConsume = require("../communication/Consumer/Admin/ADMIN_FORGET_PASSWORD/index");
 
 
 
@@ -14,6 +15,7 @@ async function consumeRabbitMQ() {
 
     SignUpOTPConsumer()
     SingInConsumerOTP()
+    AdminForgetPasswordConsume()
 
     // const queue = process.env.USER_SIGN_UP_NOTIFICATION
 
