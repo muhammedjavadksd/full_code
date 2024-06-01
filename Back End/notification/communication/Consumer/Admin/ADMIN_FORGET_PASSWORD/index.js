@@ -3,6 +3,7 @@ const { MAIL_CONFIG } = require("../../../../config/const_data");
 const mailTemplate = require("../../../../config/template/mailTemplate");
 const { communicationConnection } = require("../../../config");
 
+const nodeMailer = require("nodemailer");
 
 module.exports = async function AdminForgetPasswordConsume() {
 
@@ -11,7 +12,7 @@ module.exports = async function AdminForgetPasswordConsume() {
 
     await channel.assertQueue(queue, { durable: true });
     channel.consume(queue, (msg) => {
-        console.log("Consume Sign Up OTP", message)
+        console.log("Consume Sign Up OTP", msg)
 
         if (msg) {
             let jsonFormat = JSON.parse(msg.content.toString())
@@ -19,7 +20,7 @@ module.exports = async function AdminForgetPasswordConsume() {
 
             let { token, email, name } = jsonFormat;
 
-            let url = `${process.env.FRONT_END_URL}/admin/auth/forget_password/${token}`
+            let url = `${process.env.FRONT_END_URL}/admin/auth/reset_password/${token}`
 
             let mailContent = mailTemplate.adminForgetPasswordMailTemplate(url, name)
             let mailTransport = nodeMailer.createTransport({
@@ -44,6 +45,6 @@ module.exports = async function AdminForgetPasswordConsume() {
                 })
             })
         }
-    })
+    }, { noAck: true })
 
 }
