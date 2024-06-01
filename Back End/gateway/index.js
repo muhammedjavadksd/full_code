@@ -9,17 +9,22 @@ const proxy = require("express-http-proxy")
 dotenv.config("./.env");
 
 //const
-const PORT = process.env.PORT || 7000
+const PORT = process.env.PORT || 7001
 const AUTH_ENDPOINT = process.env.AUTH_ENDPOINT
+const PROFILE_ENDPOINT = process.env.PROFILE_ENDPOINT
 
 app.use((req, res, next) => {
-    console.log("Request came")
+    // console.log("Request came")
     next()
 })
- 
+
+console.log("Profile service endpoint", PROFILE_ENDPOINT);
+
 //middleware
-app.use("/api/auth", proxy("http://localhost:7001"))
- 
+app.use("/api/auth", proxy(AUTH_ENDPOINT))
+app.use("/api/profile", proxy(PROFILE_ENDPOINT))
+
+
 
 app.listen(PORT, () => {
     console.log("Gateway started at Port : " + PORT)
