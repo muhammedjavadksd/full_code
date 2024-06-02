@@ -87,6 +87,89 @@ let mailTemplate = {
         </html>
         `;
         return template
+    },
+
+
+    profileUpdateEmailTemplate: (email_id, otp, user_name) => {
+
+        let template = `<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Profile Update Request</title>
+        </head>
+        <body style="font-family: Arial, sans-serif; line-height: 1.6;">
+            <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td align="center">
+                        <table width="600" cellpadding="0" cellspacing="0" style="border: 1px solid #dddddd; padding: 20px;">
+                            <tr>
+                                <td style="padding: 10px 0; text-align: center; font-size: 24px; font-weight: bold;">
+                                    Important: Action Required to Update Your Profile
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px 0;">
+                                    Dear ${user_name}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px 0;">
+                                    We hope this message finds you well. To enhance your experience and ensure the security of your account, we request you to update your profile information.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px 0;">
+                                    To complete the update, please follow these steps:
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="padding: 10px 0;">
+                                    <strong>1. Enter the One-Time Password (OTP):</strong><br>
+                                    An OTP has been sent to your registered email address. Please enter this OTP on the profile update page to verify your identity.<br>
+                                    <span style="font-size: 18px; font-weight: bold;">Your OTP is: ${otp}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px 0;">
+                                    <strong>2. Update Your Profile:</strong><br>
+                                    Once verified, you will be able to update your profile information. Please ensure all details are accurate and up-to-date.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px 0;">
+                                    <strong>3. Save Changes:</strong><br>
+                                    After making the necessary updates, click on the "Save" button to finalize your changes.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px 0;">
+                                    For security reasons, this OTP will expire in 30 minutes. If you did not request a profile update or need assistance, please contact our support team immediately at  Life Link Team
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 20px 0; text-align: center;">
+                                    Thank you for your prompt attention to this matter.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px 0;">
+                                    Best regards,<br>
+                                   Life Link
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </body>
+        </html>
+        `;
+
+
+        return template;
     }
 }
 
