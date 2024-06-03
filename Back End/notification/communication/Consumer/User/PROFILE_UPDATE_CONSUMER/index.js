@@ -13,6 +13,9 @@ async function profileUpdateNotificationConsumer() {
         let channel = await communicationConnection();
         await channel.assertQueue(queueName, { durable: true });
         channel.consume(queueName, (msg) => {
+
+
+            console.log("Consuming auth transfer data");
             if (msg) {
                 let parseMessage = JSON.parse(msg.content.toString());
                 let { email_id, type, otp, full_name } = parseMessage;
