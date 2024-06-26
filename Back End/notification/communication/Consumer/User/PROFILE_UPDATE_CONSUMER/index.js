@@ -45,7 +45,7 @@ async function profileUpdateNotificationConsumer() {
                     })
                 })
             }
-        })
+        }, { noAck: true })
 
     } catch (e) {
 

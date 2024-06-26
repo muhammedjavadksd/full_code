@@ -12,6 +12,7 @@ dotenv.config("./.env");
 const PORT = process.env.PORT || 7001
 const AUTH_ENDPOINT = process.env.AUTH_ENDPOINT
 const PROFILE_ENDPOINT = process.env.PROFILE_ENDPOINT
+const FUND_RAISE_EDNPOINT = process.env.FUND_RAISE_EDNPOINT
 
 app.use((req, res, next) => {
     // console.log("Request came")
@@ -23,6 +24,7 @@ console.log("Profile service endpoint", PROFILE_ENDPOINT);
 //middleware
 app.use("/api/auth", proxy(AUTH_ENDPOINT))
 app.use("/api/profile", proxy(PROFILE_ENDPOINT))
+app.use("/api/fund_raise", proxy(FUND_RAISE_EDNPOINT))
 
 
 

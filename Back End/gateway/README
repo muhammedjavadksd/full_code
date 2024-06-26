@@ -1,3 +1,4 @@
 Authentication Endpoint :  http://localhost:7002
 Notification Endpoint :  http://localhost:7003
 Profile Endpoint :  http://localhost:7004
+Fund Raising Endpoint :  http://localhost:7005
